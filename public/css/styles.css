@@ -1,0 +1,117 @@
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  color: hsl(0, 0%, 100%);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Site Wide styles */
+
+.dark-mode-element {
+  background-color: hsl(209, 23%, 22%);
+}
+
+.dark-mode-bg {
+  background-color: hsl(207, 26%, 17%);
+}
+
+/* Header */
+
+#header {
+  padding: 1.5% 5%;
+}
+
+/* Main Container */
+
+#main-container {
+  padding: 0 5%;
+  width: 100%;
+}
+
+/* Query Container - Searcha and Filter */
+
+.query-container {
+  padding: 3% 0;
+  width: 100%;
+}
+
+/* Countries Container */
+
+.countries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.country {
+  border-radius: 10px;
+  height: 20rem;
+  margin-bottom: 6%;
+  width: 14rem;
+}
+
+.country .image, .country .info {
+  display: block;
+  height: 50%;
+  width: 100%;
+}
+
+.country .image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.country .image img {
+  height: 100%;
+}
+
+.country .info {
+  padding: 10%;
+}
+
+.country h3, .country p {
+  display: block;
+}
+
+.country h3 {
+  padding-bottom: 5%;
+}
+
+.country p {
+  padding-bottom: 2%;
+}
+
+.country p span {
+  font-weight: 600;
+}
+
+/* Footer Section */
+
+#footer {
+  padding: 3% 5%;
+  text-align: center;
+}
+
+#footer a {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+}

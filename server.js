@@ -12,10 +12,10 @@ app.use(bodyParser.urlencoded( {extended: true} ));
 
 app.get('/', (req, res) => {
 
-  https.get('https://restcountries.eu/rest/v2/all', (res) => {
+  https.get('https://restcountries.eu/rest/v2/all', (response) => {
     let data = [];
 
-    res.on('data', (chunk) => {
+    response.on('data', (chunk) => {
       // each chunk is a buffer object
       // each buffer object is pushed into the array
       data.push(chunk);
@@ -23,19 +23,19 @@ app.get('/', (req, res) => {
 
     // a buffer object is a way of representing information in the form of a sequence of bytes
 
-    res.on('end', () => {
+    response.on('end', () => {
       // .concat joins all the buffer objects in the data array into one buffer object
-      let resBody = Buffer.concat(data);
-      let resObj = JSON.parse(resBody);
+      let responseBody = Buffer.concat(data);
+      let responseObj = JSON.parse(responseBody);
+      
+      res.render('index', {
+        countriesArr: responseObj
+      });
     });
 
-    res.on('error', (error) => {
+    response.on('error', (error) => {
       console.log(error);
     });
-  });
-
-  res.render('index', {
-
   });
 });
 
