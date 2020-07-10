@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
       // .concat joins all the buffer objects in the data array into one buffer object
       let responseBody = Buffer.concat(data);
       let responseObj = JSON.parse(responseBody);
-      
+
       res.render('index', {
         countriesArr: responseObj
       });
@@ -36,6 +36,12 @@ app.get('/', (req, res) => {
     response.on('error', (error) => {
       console.log(error);
     });
+  });
+});
+
+app.get('/country', (req, res) => {
+  res.render('country', {
+
   });
 });
 

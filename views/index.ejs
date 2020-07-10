@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>REST Countries API</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-
-  <!-- Header Section -->
-  <section id="header" class="dark-mode-element">
-    <h1>Where in the world?</h1>
-    <div class="mode">
-      <p>Dark Mode</p>
-    </div>
-  </section>
+<%- include("header"); -%>
 
   <!-- Main Container -->
   <section id="main-container" class="dark-mode-bg">
@@ -46,42 +24,28 @@
       </div>
     </div>
 
+    <!-- Countries Container -->
     <div class="countries-container">
-      <!-- <div class="country">
-        <div class="image">
-        </div>
-
-        <div class="info dark-mode-element">
-          <h3>Germany</h3>
-          <p><span>Population:</span> 81,770,900</p>
-          <p><span>Region:</span> Europe</p>
-          <p><span>Capital:</span> Berlin</p>
-        </div>
-      </div> -->
 
       <%for (let i = 0; i < countriesArr.length ; i++) {%>
         <div class="country">
-          <div class="image">
-            <img src=<%= countriesArr[i].flag %> alt="<%= countriesArr[i].name %> + 'flag'">
-          </div>
+          <a href="/country">
+            <div class="image">
+              <img src=<%= countriesArr[i].flag %> alt="<%= countriesArr[i].name %> + 'flag'">
+            </div>
 
-          <div class="info dark-mode-element">
-            <h3><%= countriesArr[i].name %></h3>
-            <p><span>Population:</span> <%= countriesArr[i].population %></p>
-            <p><span>Region:</span> <%= countriesArr[i].region %></p>
-            <p><span>Capital:</span> <%= countriesArr[i].capital %></p>
-          </div>
+            <div class="info dark-mode-element">
+              <h3><%= countriesArr[i].name %></h3>
+              <p><span>Population:</span> <%= (countriesArr[i].population).toLocaleString('en') %></p>
+              <p><span>Region:</span> <%= countriesArr[i].region %></p>
+              <p><span>Capital:</span> <%= countriesArr[i].capital %></p>
+            </div>
+          </a>
         </div>
       <%}%>
 
+    </div>
+
   </section>
 
-  <!-- Attribution Section -->
-  <section id="footer" class="dark-mode-element">
-    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</p>
-    <p>Coded by <a href="https://github.com/brianhyun" target="_blank">Brian Hyun</a>.</p>
-  </section>
-
-</body>
-
-</html>
+<%- include("footer"); -%>
