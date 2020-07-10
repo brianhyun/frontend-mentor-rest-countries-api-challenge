@@ -39,7 +39,11 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/country', (req, res) => {
+app.post('/country', (req, res) => {
+
+  let countryName = req.body.country;
+  console.log(countryName);
+
   res.render('country', {
 
   });

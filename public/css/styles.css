@@ -61,10 +61,6 @@ a {
   width: 100%;
 }
 
-.query-container .filter select{
-
-}
-
 /* Countries Container */
 
 .countries-container {
@@ -74,10 +70,25 @@ a {
   width: 100%;
 }
 
+.countries-container form input {
+  display: none;
+}
+
+.countries-container form button {
+  border: none;
+  color: #fff;
+  font-family: 'Nunito Sans', sans-serif;
+  margin-bottom: 20%;
+  padding: 0;
+  text-align: left;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .country {
   border-radius: 10px;
   height: 20rem;
-  margin-bottom: 6%;
+  /* margin-bottom: 6%; */
   width: 14rem;
 }
 

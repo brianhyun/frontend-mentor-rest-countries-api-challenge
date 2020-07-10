@@ -1,51 +1,54 @@
 <%- include("header"); -%>
 
-  <!-- Main Container -->
-  <section id="main-container" class="dark-mode-bg">
+<!-- Main Container -->
+<section id="main-container" class="dark-mode-bg">
 
-    <!-- Search Section -->
-    <div class="query-container">
-      <div class="search">
-        <form class="/" action="index.html" method="post">
-          <input type="text" name="country" placeholder="Search for a country...">
-        </form>
-      </div>
-
-      <div class="filter">
-        <form class="/region" action="index.html" method="post">
-          <select class="" name="region" onchange="this.form.submit()">
-            <option value="africa">Africa</option>
-            <option value="america">America</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="oceania">Oceania</option>
-          </select>
-        </form>
-      </div>
+  <!-- Query Container -->
+  <div class="query-container">
+    <div class="search">
+      <form class="/" action="index.html" method="post">
+        <input type="text" name="country" placeholder="Search for a country...">
+      </form>
     </div>
 
-    <!-- Countries Container -->
-    <div class="countries-container">
+    <div class="filter">
+      <form class="/region" action="index.html" method="post">
+        <select class="" name="region" onchange="this.form.submit()">
+          <option value="africa">Africa</option>
+          <option value="america">America</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
+        </select>
+      </form>
+    </div>
+  </div> <!-- query container -->
 
-      <%for (let i = 0; i < countriesArr.length ; i++) {%>
+  <!-- Countries Container -->
+  <div class="countries-container">
+
+    <%for (let i = 0; i < countriesArr.length ; i++) {%>
+    <form action="/country" method="post">
+      <input type="text" name="country" value="<%= countriesArr[i].name %>">
+      <button type="submit">
         <div class="country">
-          <a href="/country">
-            <div class="image">
-              <img src=<%= countriesArr[i].flag %> alt="<%= countriesArr[i].name %> + 'flag'">
-            </div>
+          <div class="image">
+            <img src=<%= countriesArr[i].flag %> alt="<%= countriesArr[i].name %> + 'flag'">
+          </div>
 
-            <div class="info dark-mode-element">
-              <h3><%= countriesArr[i].name %></h3>
-              <p><span>Population:</span> <%= (countriesArr[i].population).toLocaleString('en') %></p>
-              <p><span>Region:</span> <%= countriesArr[i].region %></p>
-              <p><span>Capital:</span> <%= countriesArr[i].capital %></p>
-            </div>
-          </a>
+          <div class="info dark-mode-element">
+            <h3><%= countriesArr[i].name %></h3>
+            <p><span>Population:</span> <%= (countriesArr[i].population).toLocaleString('en') %></p>
+            <p><span>Region:</span> <%= countriesArr[i].region %></p>
+            <p><span>Capital:</span> <%= countriesArr[i].capital %></p>
+          </div>
         </div>
-      <%}%>
+      </button>
+    </form>
+    <%}%>
 
-    </div>
+  </div> <!-- countries container -->
 
-  </section>
+</section> <!-- main container -->
 
 <%- include("footer"); -%>
