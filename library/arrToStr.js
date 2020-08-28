@@ -1,8 +1,7 @@
 const https = require('https');
 
 // resObjArr - country obj received from API
-
-exports.getLanguages = resObjArr => {
+exports.getLanguages = (resObjArr) => {
   let itemArr = [];
   let itemStr = '';
 
@@ -46,5 +45,4 @@ exports.getBorderCountries = resObjArr => {
   }
 
   return itemStr = itemArr.join(', ');
-
 }

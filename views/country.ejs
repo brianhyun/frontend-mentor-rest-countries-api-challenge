@@ -1,37 +1,38 @@
-<%- include("header"); -%>
+<%- include("partials/header"); -%>
+	<main class="dark-mode-bg">
+		<!-- Country Flag -->
+		<div class="country-flag">
+			<img src="<%= specificCountry[0].flag %>" alt="<%= specificCountry[0].name %> flag" />
+		</div>
 
-  <!-- variables from server: specificCountry, languages -->
+		<!-- Country Specs -->
+		<div class="country-specs">
+			<!-- Country Name -->
+			<div class="country-name">
+				<h1><%= specificCountry[0].name %></h1>
+			</div>
 
-  <section id="main-container" class="dark-mode-bg">
-    <div class="country-flag">
-      <img src="<%= specificCountry[0].flag %>" alt="<%= specificCountry[0].name %> flag">
-    </div> <!-- country flag container -->
+			<!-- Country Info -->
+			<div class="country-info">
+				<div class="col-1">
+					<p>Native Name: <%= specificCountry[0].nativeName %></p>
+					<p>Population: <%= (specificCountry[0].population).toLocaleString('en') %></p>
+					<p>Region: <%= specificCountry[0].region %></p>
+					<p>Sub Region: <%= specificCountry[0].subregion %></p>
+					<p>Capital: <%= specificCountry[0].capital %></p>
+				</div>
 
-    <div class="country-specs">
-      <div class="country-name">
-        <h1><%= specificCountry[0].name %></h1>
-      </div> <!-- country name -->
+				<div class="col-2">
+					<p>Top Level Domain: <%= specificCountry[0].topLevelDomain[0] %></p>
+					<p>Currencies: <%= specificCountry[0].currencies[0].name %></p>
+					<p>Languages: <%= languages %></p>
+				</div>
+			</div>
 
-      <div class="country-info">
-        <div class="col-1">
-          <p>Native Name: <%= specificCountry[0].nativeName %></p>
-          <p>Population: <%= (specificCountry[0].population).toLocaleString('en') %></p>
-          <p>Region: <%= specificCountry[0].region %></p>
-          <p>Sub Region: <%= specificCountry[0].subregion %></p>
-          <p>Capital: <%= specificCountry[0].capital %></p>
-        </div>
-
-        <div class="col-2">
-          <p>Top Level Domain: <%= specificCountry[0].topLevelDomain[0] %></p>
-          <p>Currencies: <%= specificCountry[0].currencies[0].name %></p>
-          <p>Languages: <%= languages %></p>
-        </div>
-      </div> <!-- country info -->
-
-      <div class="country-borders">
-        <p>Border Countries: <%= borders %></p>
-      </div> <!-- country borders -->
-    </div> <!-- country specs container -->
-  </section>
-
-<%- include("footer"); -%>
+			<!-- Country Borders -->
+			<div class="country-borders">
+				<p>Border Countries: <%= borders %></p>
+			</div> <!-- country-borders -->
+		</div> <!-- country-specs -->
+	</main>
+<%- include("partials/footer"); -%>
