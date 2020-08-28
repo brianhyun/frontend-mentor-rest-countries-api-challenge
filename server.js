@@ -1,7 +1,7 @@
 const express = require('express');
 const https = require('https');
 const bodyParser = require('body-parser');
-const path = require('path');
+const arrToStr = require(__dirname + '/arrToStr.js');
 const PORT = 3000;
 
 const app = express();
@@ -11,8 +11,10 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded( {extended: true} ));
 
 app.get('/', (req, res) => {
+  // ping API to search for all countries
+  const url = 'https://restcountries.eu/rest/v2/all';
 
-  https.get('https://restcountries.eu/rest/v2/all', (response) => {
+  https.get(url, (response) => {
     let data = [];
 
     response.on('data', (chunk) => {
@@ -40,12 +42,38 @@ app.get('/', (req, res) => {
 });
 
 app.post('/country', (req, res) => {
+  // ping API to search by country name
+  const countryName = req.body.country;
+  const url = 'https://restcountries.eu/rest/v2/name/' + countryName + '?fullText=true';
 
-  let countryName = req.body.country;
-  console.log(countryName);
+  https.get(url, (response) => {
+    let body = "";
 
-  res.render('country', {
+    response.on('data', (chunks) => {
+      body += chunks;
+    });
 
+    response.on('end', () => {
+      let responseObj = JSON.parse(body);
+
+      // grab languages
+      let langStr = arrToStr.getLanguages(responseObj);
+
+      // grab border countries
+      let borderCountriesStr = arrToStr.getBorderCountries(responseObj);
+      // console.log(borderCountriesStr);
+
+      // send data over to country.ejs
+      res.render('country', {
+        specificCountry: responseObj,
+        languages: langStr,
+        borders: borderCountriesStr
+      });
+    });
+
+    response.on('error', (error) => {
+      console.log(error);
+    });
   });
 });
 
