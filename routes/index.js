@@ -11,14 +11,13 @@ router.get('/', (req, res, next) => {
 	axios.get(allCountriesURL)
 		.then(function (response) {
 			const data = response.data; 
-			console.log(data[0]); 
 
 			res.render('index', {
 				countriesArr: data
 			});
 		})
 		.catch(function (error) {
-			console.log(error);
+			console.error(error);
 		});
 });
 

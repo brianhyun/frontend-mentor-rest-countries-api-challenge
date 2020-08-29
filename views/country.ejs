@@ -2,36 +2,41 @@
 	<main class="dark-mode-bg">
 		<!-- Country Flag -->
 		<div class="country-flag">
-			<img src="<%= specificCountry[0].flag %>" alt="<%= specificCountry[0].name %> flag" />
+			<img src="<%= country.flag %>" alt="<%= country.name %> flag" />
 		</div>
 
 		<!-- Country Specs -->
 		<div class="country-specs">
 			<!-- Country Name -->
 			<div class="country-name">
-				<h1><%= specificCountry[0].name %></h1>
+				<h1><%= country.name %></h1>
 			</div>
 
 			<!-- Country Info -->
 			<div class="country-info">
 				<div class="col-1">
-					<p>Native Name: <%= specificCountry[0].nativeName %></p>
-					<p>Population: <%= (specificCountry[0].population).toLocaleString('en') %></p>
-					<p>Region: <%= specificCountry[0].region %></p>
-					<p>Sub Region: <%= specificCountry[0].subregion %></p>
-					<p>Capital: <%= specificCountry[0].capital %></p>
+					<p>Native Name: <%= country.nativeName %></p>
+					<p>Population: <%= (country.population).toLocaleString('en') %></p>
+					<p>Region: <%= country.region %></p>
+					<p>Sub Region: <%= country.subregion %></p>
+					<p>Capital: <%= country.capital %></p>
 				</div>
 
 				<div class="col-2">
-					<p>Top Level Domain: <%= specificCountry[0].topLevelDomain[0] %></p>
-					<p>Currencies: <%= specificCountry[0].currencies[0].name %></p>
+					<p>Top Level Domain: <%= country.topLevelDomain[0] %></p>
+					<p>Currencies: <%= country.currencies[0].name %></p>
 					<p>Languages: <%= languages %></p>
 				</div>
 			</div>
 
 			<!-- Country Borders -->
 			<div class="country-borders">
-				<p>Border Countries: <%= borders %></p>
+				<p>Border Countries:</p>
+				<% for (let i = 0; i < borders.length; i++) { %>
+					<p>
+						<%= borders[i] %>
+					</p>
+				<% } %>
 			</div> <!-- country-borders -->
 		</div> <!-- country-specs -->
 	</main>
