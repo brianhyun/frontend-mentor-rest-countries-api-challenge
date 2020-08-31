@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 *,
@@ -14,7 +14,9 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 14px;
     margin: 0;
-    min-height: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 0; 
 }
 
 h1,
@@ -55,7 +57,23 @@ header {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    padding: 1.5% 5%;
+    padding: 2% 5%;
+}
+
+.header__mode {
+    display: flex;
+    align-items: center;
+}
+
+.header__mode-icon {
+    margin-right: 15px;
+}
+
+.header__mode-text {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 footer {
@@ -68,8 +86,7 @@ footer {
 */
 
 main {
-    background-color: hsl(207, 26%, 17%);
-    padding: 2% 5% 5%;    
+    padding: 3% 5% 5%;    
     width: 100%;
 }
 
@@ -82,6 +99,40 @@ main {
     width: 100%;
 }
 
+.query__search {
+    align-items: center;
+    border-style: none;
+    border-radius: 5px;
+    color: #ffffff;
+    display: flex;
+    padding: 20px 0 20px 25px;
+    width: 30vw;
+}
+
+.query__search-icon {
+    margin-right: 25px;
+    width: 20px;
+}
+
+.query__search-input {
+    background-color: transparent;
+    border-style: none;
+    color: #ffffff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    width: 100%;
+}
+
+.query__search-input::placeholder {
+    color: #ffffff;
+}
+
+
+.query__search-input:focus {
+    outline: none;
+}
+
 /* Countries Container */
 
 .countries-container {
@@ -90,14 +141,15 @@ main {
     gap: 60px;
 }
 
-.country {
-    border-radius: 10px;
+.countries__country {
+    border-radius: 5px;
+    box-shadow: 0 3px 2px hsla(0, 0%, 0%, 0.4);
     width: 100%;
 }
 
-.country-image {
+.countries__country-image {
     align-items: center;
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
     display: flex;
     height: 10rem;
     justify-content: center;
@@ -105,25 +157,139 @@ main {
     width: 100%;
 }
 
-.country-image img {
+.countries__country-image img {
     height: 100%;
 }
 
-.country-info {
+.countries__country-info {
     height: 10rem;
     padding: 10%;
     width: 100%;
 }
 
-.country-info__header {
+.countries__country-info__header {
     padding-bottom: 5%;
 }
 
-.country-info__stat {
+.countries__country-info__stat {
     display: block;
     padding-bottom: 2%;
 }
 
-.country-info__stat-label {
+.countries__country-info__stat-label {
     font-weight: 600;
+}
+
+/*
+ * Specific Country Page 
+*/
+
+main.country {
+    align-items: center; 
+    display: flex; 
+    flex-direction: column;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Navigation Section */
+
+.country__navigation-section {
+    margin-bottom: 3%;
+}
+
+.country__navigation-section,
+.country__country-section {
+    width: 100%;
+}
+
+.navigation__back-btn {
+    align-items: center;
+    display: inline-flex;
+}
+
+.navigation__icon {
+    width: 23px; 
+}
+
+/* Country Section */
+
+.country__country-section {
+    display: flex; 
+}
+
+.country__country-flag,
+.country__country-specs-container {
+    width: 50%;
+}
+
+/* Flag Section */
+
+.country__country-flag {
+    margin-right: 8%;
+}
+
+.country__country-flag img {
+    width: 100%;
+}
+
+/* Specs Section */
+
+.country__country-specs-container {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+
+.country__country-name {
+    font-size: 28px;
+}
+
+.country__country-info-container {
+    display: flex; 
+    margin: 5% 0 10% 0; 
+    width: 100%;
+}
+
+.country__col {
+    width: 50%;
+}
+
+.country__col:first-child {
+    margin-right: 5%;
+}
+
+.country__info {
+    display: block;
+    margin-bottom: 5%;
+}
+
+.country__info:last-child {
+    margin-bottom: 0;
+}
+
+.country__info-label, 
+.country__border-countries-label {
+    font-weight: 600;
+}
+
+.country__border-countries-label {
+    margin-right: 15px;
+}
+
+/* Border Countries Container */
+
+.country__border-country,
+.navigation__back-btn {
+    border-radius: 5px;
+    box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.4);
+}
+
+.country__border-country {
+    margin: 0 15px 15px 0;
+    padding: 10px 20px; 
+}
+
+.navigation__back-btn {
+    padding: 10px 30px; 
 }

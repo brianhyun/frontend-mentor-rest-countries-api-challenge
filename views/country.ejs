@@ -1,43 +1,70 @@
-<%- include("partials/header"); -%>
-	<main class="dark-mode-bg">
-		<!-- Country Flag -->
-		<div class="country-flag">
-			<img src="<%= country.flag %>" alt="<%= country.name %> flag" />
-		</div>
+<%- include('partials/header'); -%>
+	<main class="country dark-mode-bg">
+		<section class="country__navigation-section">
+			<a href="/">
+				<div class="navigation__back-btn dark-mode-element">
+					<img class="navigation__icon" src="/img/arrow-dark.png" alt="arrow icon">
+				</div>
+			</a>
+		</section>
 
-		<!-- Country Specs -->
-		<div class="country-specs">
-			<!-- Country Name -->
-			<div class="country-name">
-				<h1><%= country.name %></h1>
+		<!-- Country Container -->
+		<section class="country__country-section">
+			<!-- Country Flag -->
+			<div class="country__country-flag">
+				<img src="<%= country.flag %>" alt="<%= country.name %> flag" />
 			</div>
+	
+			<!-- Country Specs -->
+			<div class="country__country-specs-container">
+				<!-- Country Name -->
+				<h1 class="country__country-name"><%= country.name %></h1>
 
-			<!-- Country Info -->
-			<div class="country-info">
-				<div class="col-1">
-					<p>Native Name: <%= country.nativeName %></p>
-					<p>Population: <%= (country.population).toLocaleString('en') %></p>
-					<p>Region: <%= country.region %></p>
-					<p>Sub Region: <%= country.subregion %></p>
-					<p>Capital: <%= country.capital %></p>
+				<!-- Country Info -->
+				<div class="country__country-info-container">
+					<div class="country__col">
+						<p class="country__info">
+							<span class="country__info-label">Native Name:</span> <%= country.nativeName %>
+						</p>
+						<p class="country__info">
+							<span class="country__info-label">Population:</span> <%= (country.population).toLocaleString('en') %>
+						</p>
+						<p class="country__info">
+							<span class="country__info-label">Region:</span> <%= country.region %>
+						</p>
+						<p class="country__info">
+							<span class="country__info-label">Sub Region:</span> <%= country.subregion %>
+						</p>
+						<p class="country__info">
+							<span class="country__info-label">Capital:</span> <%= country.capital %>
+						</p>
+					</div>
+
+					<div class="country__col">
+						<p class="country__info">
+							<span class="country__info-label">Top Level Domain:</span> <%= country.topLevelDomain[0] %>
+						</p>
+						<p class="country__info">
+							<span class="country__info-label">Currencies:</span> <%= country.currencies[0].name %>
+						</p>
+						<p class="country__info">
+							<span class="country__info-label">Languages:</span> <%= languages %>
+						</p>
+					</div>
 				</div>
 
-				<div class="col-2">
-					<p>Top Level Domain: <%= country.topLevelDomain[0] %></p>
-					<p>Currencies: <%= country.currencies[0].name %></p>
-					<p>Languages: <%= languages %></p>
-				</div>
-			</div>
-
-			<!-- Country Borders -->
-			<div class="country-borders">
-				<p>Border Countries:</p>
-				<% for (let i = 0; i < borders.length; i++) { %>
-					<p>
-						<%= borders[i] %>
-					</p>
-				<% } %>
-			</div> <!-- country-borders -->
-		</div> <!-- country-specs -->
+				<!-- Country Borders -->
+				<div class="country__border-countries-container">
+					<p class="country__border-countries-label" >Border Countries:</p>
+					<% for (let i = 0; i < borders.length; i++) { %>
+						<a href="/country/<%= borders[i].code %>">
+							<p class="country__border-country .dark-mode-element">
+								<%= borders[i].name %>
+							</p>
+						</a>
+					<% } %>
+				</div> <!-- country-borders -->
+			</div> <!-- country-specs -->
+		</section> <!-- country-container-->
 	</main>
-<%- include("partials/footer"); -%>
+<%- include('partials/footer'); -%>

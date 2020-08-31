@@ -20,20 +20,34 @@ router.get('/country/:code', (req, res, next) => {
 
 			// Convert Country Codes to Country Names (e.g. FRA -> France) 
 			const borderCountries = [];
-			const promises = [];
 
-			for (let i = 0; i < countryObj.borders.length; i++) {
-				let countryCode = countryObj.borders[i];
+			if (countryObj.borders.length === 0) {
+				borderCountries.push({name: 'None', code: countryObj.alpha2Code});
 
-				promises.push(
-					axios.get('https://restcountries.eu/rest/v2/alpha/' + countryCode) 
-						.then(function (response) {
-							borderCountries.push(response.data.name);
-						})
-				);
-			}
+				res.render('country', {
+					country: countryObj,
+					languages: langStr,
+					borders: borderCountries
+				});
+			} else {
+				const promises = [];
 
-			Promise.all(promises)
+				for (let i = 0; i < countryObj.borders.length; i++) {
+					let countryCode = countryObj.borders[i];
+	
+					promises.push(
+						axios.get('https://restcountries.eu/rest/v2/alpha/' + countryCode) 
+							.then(function (response) {
+								const borderCountry = {
+									name: response.data.name, 
+									code: response.data.alpha2Code
+								}
+								borderCountries.push(borderCountry);
+							})
+					);
+				}
+
+				Promise.all(promises)
 				.then(function () {
 					res.render('country', {
 						country: countryObj,
@@ -44,6 +58,7 @@ router.get('/country/:code', (req, res, next) => {
 				.catch(function (error) {
 					console.error(error);
 				});
+			}
 		})
 		.catch(function (error) {
 			console.error(error);

@@ -1,26 +1,23 @@
 <%- include('partials/header'); -%>
-	<main>
+	<main class="homepage dark-mode-bg">
 		<!-- Query Container -->
 		<section class="query-container">
 			<!-- Search Box -->
-			<div class="search">
-				<form class="/" action="index.html" method="post">
-					<input type="text" name="country" placeholder="Search for a country..." />
-				</form>
-			</div>
+			<form class="query__search dark-mode-element" action="/" method="post">
+				<img class="query__search-icon" src="/img/search-dark.png" alt="magnifying glass icon">
+				<input class="query__search-input" type="text" name="country" placeholder="Search for a country..." />
+			</form>
 
 			<!-- Filters -->
-			<div class="filter">
-				<form class="/region" action="index.html" method="post">
-					<select class="" name="region" onchange="this.form.submit()">
-						<option value="africa">Africa</option>
-						<option value="america">America</option>
-						<option value="asia">Asia</option>
-						<option value="europe">Europe</option>
-						<option value="oceania">Oceania</option>
-					</select>
-				</form>
-			</div> <!-- Filters -->
+			<form class="query__filter" action="/region" method="post">
+				<select class="" name="region" onchange="this.form.submit()">
+					<option value="africa">Africa</option>
+					<option value="america">America</option>
+					<option value="asia">Asia</option>
+					<option value="europe">Europe</option>
+					<option value="oceania">Oceania</option>
+				</select>
+			</form>
 		</section> <!-- Query Container -->
 
 		<!-- Countries Container -->
@@ -28,26 +25,26 @@
 			<!-- Country Card -->
 			<% for (let i = 0; i < countriesArr.length ; i++) { %>
 				<a href="/country/<%= countriesArr[i].alpha2Code %>">
-					<div class="country dark-mode-element">
+					<div class="countries__country dark-mode-element">
 						<!-- Country Image -->
-						<div class="country-image">
+						<div class="countries__country-image">
 							<img src="<%= countriesArr[i].flag %>" alt="country flag">
 						</div>
 		
 						<!-- Country Info -->
-						<div class="country-info">
+						<div class="countries__country-info">
 							<!-- Country Name -->
-							<h3 class="country-info__header"><%= countriesArr[i].name %></h3>
+							<h3 class="countries__country-info__header"><%= countriesArr[i].name %></h3>
 
 							<!-- Country Stats -->
-							<p class="country-info__stat">
-								<span class="country-info__stat-label">Population:</span> <%= (countriesArr[i].population).toLocaleString('en') %>
+							<p class="countries__country-info__stat">
+								<span class="countries__country-info__stat-label">Population:</span> <%= (countriesArr[i].population).toLocaleString('en') %>
 							</p>
-							<p class="country-info__stat">
-								<span class="country-info__stat-label">Region:</span> <%= countriesArr[i].region %>
+							<p class="countries__country-info__stat">
+								<span class="countries__country-info__stat-label">Region:</span> <%= countriesArr[i].region %>
 							</p>
-							<p class="country-info__stat">
-								<span class="country-info__stat-label">Capital:</span> <%= countriesArr[i].capital %>
+							<p class="countries__country-info__stat">
+								<span class="countries__country-info__stat-label">Capital:</span> <%= countriesArr[i].capital %>
 							</p>
 						</div>
 					</div>
