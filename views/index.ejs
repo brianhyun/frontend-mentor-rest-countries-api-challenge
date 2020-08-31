@@ -3,7 +3,7 @@
 		<!-- Query Container -->
 		<section class="query-container">
 			<!-- Search Box -->
-			<form class="query__search dark-mode-element" action="/" method="post">
+			<form class="query__search dark-mode-element">
 				<img class="query__search-icon" src="/img/search-dark.png" alt="magnifying glass icon">
 				<input class="query__search-input" type="text" name="country" placeholder="Search for a country..." />
 			</form>
@@ -24,7 +24,7 @@
 		<section class="countries-container">
 			<!-- Country Card -->
 			<% for (let i = 0; i < countriesArr.length ; i++) { %>
-				<a href="/country/<%= countriesArr[i].alpha2Code %>">
+				<a class="countries__country-link" href="/country/<%= countriesArr[i].alpha2Code %>">
 					<div class="countries__country dark-mode-element">
 						<!-- Country Image -->
 						<div class="countries__country-image">
