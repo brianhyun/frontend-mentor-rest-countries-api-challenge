@@ -12,11 +12,17 @@ $(document).ready(function(){
 			// Conditional to Test if Input is Equal to Country Name
 			if (countryName.indexOf(chars) === -1) {
 				// Hide Country Element 
-				$(this).parents(".countries__country-link").css("display", "none");
+				$(this).parents(".countries__country-link").hide();
 			} else {
 				// Show Country Element 
-				$(this).parents(".countries__country-link").css("display", "block");
+				$(this).parents(".countries__country-link").show();
 			}
 		}); 
+
+		if ($(".countries-container").children(":visible").length === 0) {
+			$("#zero-matches").removeClass("hide");
+		} else {
+			$("#zero-matches").addClass("hide");
+		}
 	});
   });

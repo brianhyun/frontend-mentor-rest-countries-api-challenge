@@ -11,6 +11,8 @@ html {
 
 body {
     color: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 14px;
     margin: 0;
@@ -41,6 +43,12 @@ a {
 * Site Wide styles 
 */
 
+main {
+    flex-grow: 1;
+    padding: 5%;    
+    width: 100%;
+}
+
 .dark-mode-element {
     background-color: hsl(209, 23%, 22%);
 }
@@ -50,7 +58,7 @@ a {
 }
 
 /* 
-* Header and Footer Section
+* Header Section
 */
 
 header {
@@ -76,26 +84,25 @@ header {
     text-transform: uppercase;
 }
 
+/* 
+* Footer Section
+*/
+
 footer {
     padding: 3% 5%;
     text-align: center;
 }
 
 /* 
-* Main Container 
+* Main Page
 */
-
-main {
-    padding: 3% 5% 5%;    
-    width: 100%;
-}
 
 /* Query Container - Search and Filter */
 
 .query-container {
     display: flex;
     justify-content: space-between;
-    padding: 3% 0;
+    padding: 0 0 3%;
     width: 100%;
 }
 
@@ -292,4 +299,22 @@ main.country {
 
 .navigation__back-btn {
     padding: 10px 30px; 
+}
+
+/*
+ * Zero Matches
+*/
+
+#zero-matches {
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: auto 0;
+    padding: 25px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hide {
+    display: none;
 }

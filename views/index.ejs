@@ -3,7 +3,7 @@
 		<!-- Query Container -->
 		<section class="query-container">
 			<!-- Search Box -->
-			<form class="query__search dark-mode-element">
+			<form class="query__search dark-mode-element" onsubmit="return false;">
 				<img class="query__search-icon" src="/img/search-dark.png" alt="magnifying glass icon">
 				<input class="query__search-input" type="text" name="country" placeholder="Search for a country..." />
 			</form>
@@ -18,7 +18,7 @@
 					<option value="oceania">Oceania</option>
 				</select>
 			</form>
-		</section> <!-- Query Container -->
+		</section>
 
 		<!-- Countries Container -->
 		<section class="countries-container">
@@ -50,6 +50,10 @@
 					</div>
 				</a>
 			<% } %>
-		</section> <!-- Countries Container -->
+		</section>
+
+		<div id="zero-matches" class="hide dark-mode-element">
+			No Matches Found!
+		</div>
 	</main>
 <%- include('partials/footer'); -%>
