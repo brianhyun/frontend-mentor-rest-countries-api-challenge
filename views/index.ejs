@@ -5,19 +5,26 @@
 			<!-- Search Box -->
 			<form class="query__search dark-mode-element" onsubmit="return false;">
 				<img class="query__search-icon" src="/img/search-dark.png" alt="magnifying glass icon">
-				<input class="query__search-input" type="text" name="country" placeholder="Search for a country..." />
+				<input class="query__search-input" type="text" name="country" placeholder="Search for a country..." autofocus/>
 			</form>
 
-			<!-- Filters -->
-			<form class="query__filter" action="/region" method="post">
-				<select class="" name="region" onchange="this.form.submit()">
-					<option value="africa">Africa</option>
-					<option value="america">America</option>
-					<option value="asia">Asia</option>
-					<option value="europe">Europe</option>
-					<option value="oceania">Oceania</option>
-				</select>
-			</form>
+			<!-- Filter by Region -->
+			<div class="query__filter">
+				<!-- Button -->
+				<button type="button" id="query__filter-button" class="dark-mode-element hide">
+					<img src="/img/dropdown-dark.png" alt="dropdown icon">
+					<p class="query__filter-button-text">By Region</p>
+				</button>
+
+				<!-- Dropdown Menu -->
+				<div id="query__filter-menu" class="hide dark-mode-element">
+					<a class="query__filter-item" href="#">Africa</a>
+					<a class="query__filter-item" href="#">America</a>
+					<a class="query__filter-item" href="#">Asia</a>
+					<a class="query__filter-item" href="#">Europe</a>
+					<a class="query__filter-item" href="#">Oceania</a>
+				</div>
+			  </div>
 		</section>
 
 		<!-- Countries Container -->
@@ -27,7 +34,7 @@
 				<a class="countries__country-link" href="/country/<%= countriesArr[i].alpha2Code %>">
 					<div class="countries__country dark-mode-element">
 						<!-- Country Image -->
-						<div class="countries__country-image">
+						<div class="countries__country-image dark-mode-img-background">
 							<img src="<%= countriesArr[i].flag %>" alt="country flag">
 						</div>
 		
@@ -41,7 +48,7 @@
 								<span class="countries__country-info__stat-label">Population:</span> <%= (countriesArr[i].population).toLocaleString('en') %>
 							</p>
 							<p class="countries__country-info__stat">
-								<span class="countries__country-info__stat-label">Region:</span> <%= countriesArr[i].region %>
+								<span class="countries__country-info__stat-label">Region:</span> <span class="country__info-region"><%= countriesArr[i].region %></span>
 							</p>
 							<p class="countries__country-info__stat">
 								<span class="countries__country-info__stat-label">Capital:</span> <%= countriesArr[i].capital %>
@@ -52,8 +59,9 @@
 			<% } %>
 		</section>
 
-		<div id="zero-matches" class="hide dark-mode-element">
+		<!-- No Matches Found -->
+		<section id="no-matches" class="hide dark-mode-element">
 			No Matches Found!
-		</div>
+		</section>
 	</main>
 <%- include('partials/footer'); -%>

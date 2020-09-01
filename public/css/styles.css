@@ -40,7 +40,24 @@ a {
 }
 
 /* 
-* Site Wide styles 
+ * Scrollbar
+*/
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+  
+::-webkit-scrollbar-track {
+    background: hsl(210, 26%, 12%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #009F93;
+    border-radius: 3px;
+}
+
+/* 
+ * Site Wide styles 
 */
 
 main {
@@ -53,12 +70,20 @@ main {
     background-color: hsl(209, 23%, 22%);
 }
 
+.dark-mode-img-background {
+    background-color: hsl(210, 26%, 12%);
+}
+
 .dark-mode-bg {
     background-color: hsl(207, 26%, 17%);
 }
 
+.hide {
+    display: none;
+}
+
 /* 
-* Header Section
+ * Header Section
 */
 
 header {
@@ -85,7 +110,7 @@ header {
 }
 
 /* 
-* Footer Section
+ * Footer Section
 */
 
 footer {
@@ -94,7 +119,7 @@ footer {
 }
 
 /* 
-* Main Page
+ * Main Page
 */
 
 /* Query Container - Search and Filter */
@@ -105,6 +130,8 @@ footer {
     padding: 0 0 3%;
     width: 100%;
 }
+
+/* Search Bar */
 
 .query__search {
     align-items: center;
@@ -138,6 +165,50 @@ footer {
 
 .query__search-input:focus {
     outline: none;
+}
+
+/* Filter */
+
+.query__filter {
+    position: relative;
+}
+
+#query__filter-button {
+    align-items: center;
+    border: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    display: flex;
+    font-family: 'Nunito Sans', sans-serif;
+    height: 100%;
+    justify-content: space-between;
+    padding: 20px 25px;
+    width: 100%;
+}
+
+#query__filter-button:focus {
+    outline: none;
+}
+
+.query__filter-button-text {
+    margin-left: 15px;
+}
+
+#query__filter-menu {
+    border-radius: 5px;
+    margin-top: 8px;
+    padding: 25px;
+    position: absolute; 
+    width: 100%;
+}
+
+.query__filter-item {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.query__filter-item:last-child {
+    margin-bottom: 0;
 }
 
 /* Countries Container */
@@ -175,12 +246,12 @@ footer {
 }
 
 .countries__country-info__header {
-    padding-bottom: 5%;
+    margin-bottom: 5%;
 }
 
 .countries__country-info__stat {
     display: block;
-    padding-bottom: 2%;
+    margin-bottom: 2%;
 }
 
 .countries__country-info__stat-label {
@@ -305,7 +376,7 @@ main.country {
  * Zero Matches
 */
 
-#zero-matches {
+#no-matches {
     border-radius: 5px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -313,8 +384,4 @@ main.country {
     padding: 25px;
     text-align: center;
     text-transform: uppercase;
-}
-
-.hide {
-    display: none;
 }
