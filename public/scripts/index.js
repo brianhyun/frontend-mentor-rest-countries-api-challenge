@@ -17,7 +17,11 @@ $(document).ready(function(){
 		// Grab User-Selected Region
 		const region = event.target.innerText.toLowerCase();
 
-		displayOnMatch(".country__info-region", region);
+		if (region === 'all regions') {
+			$(".countries__country-link").show();
+		} else {
+			displayOnMatch(".country__info-region", region);
+		}
 	})
 });
 
