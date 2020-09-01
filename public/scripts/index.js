@@ -23,6 +23,13 @@ $(document).ready(function(){
 			displayOnMatch(".country__info-region", region);
 		}
 	})
+
+	// Hide To-Top Button on Individual Country Pages 
+	if (window.location.pathname !== '/') {
+		$("#to-top-btn-link").hide();
+	} else {
+		$("#to-top-btn-link").show();
+	}
 });
 
 /*

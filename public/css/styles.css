@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -44,7 +45,7 @@ a {
 */
 
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 20px;
 }
   
 ::-webkit-scrollbar-track {
@@ -53,7 +54,6 @@ a {
 
 ::-webkit-scrollbar-thumb {
     background: #009F93;
-    border-radius: 3px;
 }
 
 /* 
@@ -80,6 +80,26 @@ main {
 
 .hide {
     display: none;
+}
+
+/* To-Top Button */
+
+.to-top-btn {
+    align-items: center;
+    background-color: #009F93;
+    border-radius: 100%;
+    box-shadow: 0 2px 2px #000000;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    position: fixed;
+        right: 40px;
+        bottom: 40px;
+}
+
+
+.to-top-btn:hover {
+    cursor: pointer;
 }
 
 /* 
@@ -170,6 +190,11 @@ footer {
     width: 100%;
 }
 
+#query__filter-button:hover {
+    cursor: pointer;
+}
+
+
 #query__filter-button:focus {
     outline: none;
 }
@@ -206,7 +231,13 @@ footer {
 .countries__country {
     border-radius: 5px;
     box-shadow: 0 3px 2px hsla(0, 0%, 0%, 0.4);
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
     width: 100%;
+}
+
+.countries__country:hover {
+    box-shadow: 0 15px 7px hsla(0, 0%, 0%, 0.4);
 }
 
 .countries__country-image {
@@ -345,6 +376,13 @@ main.country {
 .navigation__back-btn {
     border-radius: 5px;
     box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.4);
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+}
+
+.country__border-country:hover,
+.navigation__back-btn:hover {
+    box-shadow: 0 5px 3px hsla(0, 0%, 0%, 0.4);
 }
 
 .country__border-country {
