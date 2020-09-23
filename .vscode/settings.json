@@ -1,5 +1,11 @@
 {
-    "breadcrumbs.enabled": false
+    "breadcrumbs.enabled": false,
+    "cSpell.ignoreWords": [
+        "scrollbar"
+    ],
+    "cSpell.words": [
+        "minmax"
+    ]
     // "editor.defaultFormatter": "esbenp.prettier-vscode",
     // "editor.formatOnSave": true
 }
