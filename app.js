@@ -16,6 +16,6 @@ app.use(indexRouter);
 app.use(countryRouter);
 app.use(errorController);
 
-app.listen(4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log('REST Countries API App listening at PORT', 4000);
 });
