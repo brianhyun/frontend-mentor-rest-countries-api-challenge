@@ -272,7 +272,7 @@ main.country {
 
 /* Navigation Section */
 .country__navigation-section {
-    margin-bottom: 3%;
+    margin-bottom: 8%;
 }
 
 .country__navigation-section,
@@ -292,16 +292,17 @@ main.country {
 /* Country Section */
 .country__country-section {
     display: flex; 
+    flex-direction: column;
 }
 
 .country__country-flag,
 .country__country-specs-container {
-    width: 50%;
+    width: 100%;
 }
 
 /* Flag Section */
 .country__country-flag {
-    margin-right: 8%;
+    margin-bottom: 8%;
 }
 
 .country__country-flag img {
@@ -310,6 +311,7 @@ main.country {
 
 /* Specs Section */
 .country__country-specs-container {
+    align-items: center;
     display: flex; 
     flex-direction: column; 
     justify-content: center;
@@ -320,17 +322,19 @@ main.country {
 }
 
 .country__country-info-container {
+    align-items: center;
     display: flex; 
-    margin: 5% 0 10% 0; 
+    flex-direction: column; 
+    margin: 8% 0; 
     width: 100%;
 }
 
 .country__col {
-    width: 50%;
-}
-
-.country__col:first-child {
-    margin-right: 5%;
+    align-items: center;
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 5%;
+    width: 100%;
 }
 
 .country__info {
@@ -400,6 +404,7 @@ main.country {
 
     /* Scrollbar */
     ::-webkit-scrollbar {
+        display: block;
         width: 20px;
     }
     
@@ -430,6 +435,48 @@ main.country {
         width: 30vw;
     }
 
+    /* Navigation Section */
+    .country__navigation-section {
+        margin-bottom: 3%;
+    }
+
+    /* Country Section */
+    .country__country-section {
+        flex-direction: row; 
+    }
+
+    .country__country-flag,
+    .country__country-specs-container {
+        width: 50%;
+    }
+
+    /* Flag Section */
+    .country__country-flag {
+        margin-bottom: 0; 
+        margin-right: 8%;
+    }
+
+    /* Specs Section */
+    .country__country-specs-container {
+        align-items: flex-start;
+    }
+
+    .country__country-info-container {
+        align-items: flex-start;
+        flex-direction: row; 
+        margin: 5% 0 10% 0; 
+    }
+
+    .country__col {
+        display: block;
+        margin-bottom: 0;
+        width: 50%;
+    }
+    
+    .country__col:first-child {
+        margin-right: 5%;
+    }    
+    
     /* Footer */
     footer {
         padding: 3% 5%;
