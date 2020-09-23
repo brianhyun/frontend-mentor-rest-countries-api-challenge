@@ -81,6 +81,10 @@ main {
     display: none;
 }
 
+.selected {
+    color: #00c9b8;
+}
+
 /* To-Top Button */
 .to-top-btn {
     align-items: center;
@@ -94,7 +98,6 @@ main {
         right: 40px;
         bottom: 40px;
 }
-
 
 .to-top-btn:hover {
     cursor: pointer;
@@ -173,13 +176,15 @@ footer {
     height: 100%;
     justify-content: space-between;
     padding: 20px 25px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
     width: 100%;
 }
 
 #query__filter-button:hover {
+    box-shadow: 0 10px 7px hsla(0, 0%, 0%, 0.4);
     cursor: pointer;
 }
-
 
 #query__filter-button:focus {
     outline: none;
@@ -191,6 +196,7 @@ footer {
 
 #query__filter-menu {
     border-radius: 5px;
+    box-shadow: 0 10px 7px hsla(0, 0%, 0%, 0.4);
     margin-top: 8px;
     padding: 25px;
     position: absolute; 
@@ -222,7 +228,7 @@ footer {
 }
 
 .countries__country:hover {
-    box-shadow: 0 15px 7px hsla(0, 0%, 0%, 0.4);
+    box-shadow: 0 10px 7px hsla(0, 0%, 0%, 0.4);
 }
 
 .countries__country-image {

@@ -13,7 +13,11 @@ $(document).ready(function(){
 	})
 
 	// Filter Page on Menu-Item Click
-	$(".query__filter-item").on("click", (event) => {
+	$(".query__filter-item").on("click", function(event) {
+		// Add Bold Class to Selected Region
+		$(".query__filter-item").removeClass("selected");
+		$(this).addClass("selected");
+
 		// Grab User-Selected Region
 		const region = event.target.innerText.toLowerCase();
 
@@ -22,6 +26,8 @@ $(document).ready(function(){
 		} else {
 			displayOnMatch(".country__info-region", region);
 		}
+
+		$("#query__filter-menu").hide();
 	})
 
 	// Hide To-Top Button on Individual Country Pages 
