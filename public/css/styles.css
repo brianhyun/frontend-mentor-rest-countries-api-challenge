@@ -17,7 +17,7 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 14px;
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
 
 h1,
@@ -48,20 +48,12 @@ header {
 }
 
 /* 
- * Scrollbar
- */
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-/* 
  * Site Wide styles 
  */
 
 main {
     flex-grow: 1;
-    padding: 8%;    
+    padding: 8%;
     width: 100%;
 }
 
@@ -88,15 +80,15 @@ main {
 /* To-Top Button */
 .to-top-btn {
     align-items: center;
-    background-color: #009F93;
+    background-color: #009f93;
     border-radius: 100%;
     box-shadow: 0 2px 2px #000000;
     display: flex;
     justify-content: center;
     padding: 15px;
     position: fixed;
-        right: 40px;
-        bottom: 40px;
+    right: 40px;
+    bottom: 40px;
 }
 
 .to-top-btn:hover {
@@ -120,7 +112,7 @@ footer {
 .query-container {
     align-items: center;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     margin-bottom: 8%;
     width: 100%;
 }
@@ -155,7 +147,6 @@ footer {
 .query__search-input::placeholder {
     color: #ffffff;
 }
-
 
 .query__search-input:focus {
     outline: none;
@@ -199,7 +190,7 @@ footer {
     box-shadow: 0 10px 7px hsla(0, 0%, 0%, 0.4);
     margin-top: 8px;
     padding: 25px;
-    position: absolute; 
+    position: absolute;
     width: 100%;
 }
 
@@ -269,8 +260,8 @@ footer {
  */
 
 main.country {
-    align-items: center; 
-    display: flex; 
+    align-items: center;
+    display: flex;
     flex-direction: column;
     font-size: 16px;
     width: 100%;
@@ -292,12 +283,12 @@ main.country {
 }
 
 .navigation__icon {
-    width: 23px; 
+    width: 23px;
 }
 
 /* Country Section */
 .country__country-section {
-    display: flex; 
+    display: flex;
     flex-direction: column;
 }
 
@@ -318,8 +309,8 @@ main.country {
 /* Specs Section */
 .country__country-specs-container {
     align-items: center;
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -329,16 +320,16 @@ main.country {
 
 .country__country-info-container {
     align-items: center;
-    display: flex; 
-    flex-direction: column; 
-    margin: 8% 0; 
+    display: flex;
+    flex-direction: column;
+    margin: 8% 0;
     width: 100%;
 }
 
 .country__col {
     align-items: center;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     margin-bottom: 5%;
     width: 100%;
 }
@@ -352,7 +343,7 @@ main.country {
     margin-bottom: 0;
 }
 
-.country__info-label, 
+.country__info-label,
 .country__border-countries-label {
     font-weight: 600;
 }
@@ -377,11 +368,11 @@ main.country {
 
 .country__border-country {
     margin: 0 15px 15px 0;
-    padding: 10px 20px; 
+    padding: 10px 20px;
 }
 
 .navigation__back-btn {
-    padding: 10px 30px; 
+    padding: 10px 30px;
 }
 
 /*
@@ -401,36 +392,22 @@ main.country {
  * Media Query 
  */
 
- @media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) {
     /* Header */
     header {
-        text-align: left; 
+        text-align: left;
         padding: 2% 5%;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-        display: block;
-        width: 20px;
-    }
-    
-    ::-webkit-scrollbar-track {
-        background: hsl(210, 26%, 12%);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #009F93;
     }
 
     /* Main Container */
     main {
-        padding: 5%;    
+        padding: 5%;
     }
 
     /* Query Container - Search and Filter */
     .query-container {
         display: flex;
-        flex-direction: row; 
+        flex-direction: row;
         justify-content: space-between;
         margin-bottom: 3%;
     }
@@ -448,7 +425,7 @@ main.country {
 
     /* Country Section */
     .country__country-section {
-        flex-direction: row; 
+        flex-direction: row;
     }
 
     .country__country-flag,
@@ -458,7 +435,7 @@ main.country {
 
     /* Flag Section */
     .country__country-flag {
-        margin-bottom: 0; 
+        margin-bottom: 0;
         margin-right: 8%;
     }
 
@@ -469,8 +446,8 @@ main.country {
 
     .country__country-info-container {
         align-items: flex-start;
-        flex-direction: row; 
-        margin: 5% 0 10% 0; 
+        flex-direction: row;
+        margin: 5% 0 10% 0;
     }
 
     .country__col {
@@ -478,11 +455,11 @@ main.country {
         margin-bottom: 0;
         width: 50%;
     }
-    
+
     .country__col:first-child {
         margin-right: 5%;
-    }    
-    
+    }
+
     /* Footer */
     footer {
         padding: 3% 5%;
