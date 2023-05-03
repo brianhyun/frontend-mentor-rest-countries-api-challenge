@@ -56,7 +56,7 @@
         <div class="country__col">
           <p class="country__info">
             <span class="country__info-label">Top-Level Domain:</span> <%=
-            country.tld %>
+            country.tld.join(', ') %>
           </p>
           <p class="country__info">
             <span class="country__info-label">Currencies:</span>
@@ -73,8 +73,9 @@
       <!-- Country Borders -->
       <div class="country__border-countries-container">
         <p class="country__border-countries-label">Border Countries:</p>
-        <% if (borders.length) { %> None <% } else { %> <% for (let i = 0; i <
-        borders.length; i++) { %>
+        <% if (borders.length === 0) { %>
+        <p>None</p>
+        <% } else { %> <% for (let i = 0; i < borders.length; i++) { %>
         <a href="/country/<%= borders[i].code %>">
           <p class="country__border-country dark-mode-element">
             <%= borders[i].name %>
