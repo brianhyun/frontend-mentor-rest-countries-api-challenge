@@ -1,24 +1,22 @@
-const express = require('express');
-const axios = require('axios');
-const queryString = require('qs');
+const axios = require("axios");
+const express = require("express");
 
-const router = express.Router(); 
+const router = express.Router();
 
-router.get('/', (req, res, next) => {
-	// Ping API for Data on All Countries
-	const allCountriesURL = 'https://restcountries.eu/rest/v2/all';
+router.get("/", (req, res, next) => {
+  // Ping API for Data on All Countries
+  axios
+    .get("https://restcountries.com/v3.1/all")
+    .then(function (response) {
+      const data = response.data;
 
-	axios.get(allCountriesURL)
-		.then(function (response) {
-			const data = response.data; 
-
-			res.render('index', {
-				countriesArr: data
-			});
-		})
-		.catch(function (error) {
-			console.error(error);
-		});
+      res.render("index", {
+        countriesArr: data,
+      });
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 });
 
-module.exports = router; 
+module.exports = router;

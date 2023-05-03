@@ -1,70 +1,91 @@
 <%- include('partials/header'); -%>
-	<main class="country dark-mode-bg">
-		<section class="country__navigation-section">
-			<a href="/">
-				<div class="navigation__back-btn dark-mode-element">
-					<img class="navigation__icon" src="/img/arrow-dark.png" alt="arrow icon">
-				</div>
-			</a>
-		</section>
+<main class="country dark-mode-bg">
+  <section class="country__navigation-section">
+    <a href="/">
+      <div class="navigation__back-btn dark-mode-element">
+        <img
+          alt="arrow icon"
+          class="navigation__icon"
+          src="/img/arrow-dark.png"
+        />
+      </div>
+    </a>
+  </section>
 
-		<!-- Country Container -->
-		<section class="country__country-section">
-			<!-- Country Flag -->
-			<div class="country__country-flag">
-				<img class="country__country-flag-image" src="<%= country.flag %>" alt="<%= country.name %> flag" />
-			</div>
-	
-			<!-- Country Specs -->
-			<div class="country__country-specs-container">
-				<!-- Country Name -->
-				<h1 class="country__country-name"><%= country.name %></h1>
+  <!-- Country Container -->
+  <section class="country__country-section">
+    <!-- Country Flag -->
+    <div class="country__country-flag">
+      <img
+        src="<%= country.flags.png %>"
+        alt="<%= country.name %> flag"
+        class="country__country-flag-image"
+      />
+    </div>
 
-				<!-- Country Info -->
-				<div class="country__country-info-container">
-					<div class="country__col">
-						<p class="country__info">
-							<span class="country__info-label">Native Name:</span> <%= country.nativeName %>
-						</p>
-						<p class="country__info">
-							<span class="country__info-label">Population:</span> <%= (country.population).toLocaleString('en') %>
-						</p>
-						<p class="country__info">
-							<span class="country__info-label">Region:</span> <%= country.region %>
-						</p>
-						<p class="country__info">
-							<span class="country__info-label">Sub-Region:</span> <%= country.subregion %>
-						</p>
-						<p class="country__info">
-							<span class="country__info-label">Capital:</span> <%= country.capital %>
-						</p>
-					</div>
+    <!-- Country Specs -->
+    <div class="country__country-specs-container">
+      <!-- Country Name -->
+      <h1 class="country__country-name"><%= country.name.official %></h1>
 
-					<div class="country__col">
-						<p class="country__info">
-							<span class="country__info-label">Top-Level Domain:</span> <%= country.topLevelDomain[0] %>
-						</p>
-						<p class="country__info">
-							<span class="country__info-label">Currencies:</span> <%= country.currencies[0].name %>
-						</p>
-						<p class="country__info">
-							<span class="country__info-label">Languages:</span> <%= languages %>
-						</p>
-					</div>
-				</div>
+      <!-- Country Info -->
+      <div class="country__country-info-container">
+        <div class="country__col">
+          <p class="country__info">
+            <span class="country__info-label">Name:</span>
+            <%= country.name.official %>
+          </p>
+          <p class="country__info">
+            <span class="country__info-label">Population:</span> <%=
+            country.population.toLocaleString() %>
+          </p>
+          <p class="country__info">
+            <span class="country__info-label">Region:</span> <%= country.region
+            %>
+          </p>
+          <p class="country__info">
+            <span class="country__info-label">Sub-Region:</span> <%=
+            country.subregion %>
+          </p>
+          <p class="country__info">
+            <span class="country__info-label">Capital:</span> <%=
+            country.capital %>
+          </p>
+        </div>
 
-				<!-- Country Borders -->
-				<div class="country__border-countries-container">
-					<p class="country__border-countries-label" >Border Countries:</p>
-					<% for (let i = 0; i < borders.length; i++) { %>
-						<a href="/country/<%= borders[i].code %>">
-							<p class="country__border-country dark-mode-element">
-								<%= borders[i].name %>
-							</p>
-						</a>
-					<% } %>
-				</div> <!-- country-borders -->
-			</div> <!-- country-specs -->
-		</section> <!-- country-container-->
-	</main>
+        <div class="country__col">
+          <p class="country__info">
+            <span class="country__info-label">Top-Level Domain:</span> <%=
+            country.tld %>
+          </p>
+          <p class="country__info">
+            <span class="country__info-label">Currencies:</span>
+            <% for (const property in country.currencies) { %>
+            <span> <%= country.currencies[property].name %> </span>
+            <% } %>
+          </p>
+          <p class="country__info">
+            <span class="country__info-label">Languages:</span> <%= languages %>
+          </p>
+        </div>
+      </div>
+
+      <!-- Country Borders -->
+      <div class="country__border-countries-container">
+        <p class="country__border-countries-label">Border Countries:</p>
+        <% if (borders.length) { %> None <% } else { %> <% for (let i = 0; i <
+        borders.length; i++) { %>
+        <a href="/country/<%= borders[i].code %>">
+          <p class="country__border-country dark-mode-element">
+            <%= borders[i].name %>
+          </p>
+        </a>
+        <% } %> <% } %>
+      </div>
+      <!-- country-borders -->
+    </div>
+    <!-- country-specs -->
+  </section>
+  <!-- country-container-->
+</main>
 <%- include('partials/footer'); -%>
