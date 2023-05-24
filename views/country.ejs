@@ -48,8 +48,8 @@
             country.subregion %>
           </p>
           <p class="country__info">
-            <span class="country__info-label">Capital:</span> <%=
-            country.capital %>
+            <span class="country__info-label">Capital:</span>
+            <%= country.capital ? country.capital : 'N/A' %>
           </p>
         </div>
 

@@ -76,7 +76,7 @@
           </p>
           <p class="countries__country-info__stat">
             <span class="countries__country-info__stat-label">Capital:</span>
-            <%= countriesArr[i].capital %>
+            <%= countriesArr[i].capital ? countriesArr[i].capital : 'N/A' %>
           </p>
         </div>
       </div>

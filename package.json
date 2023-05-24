@@ -1,33 +1,34 @@
 {
-    "name": "frontend-mentor-rest-countries-api-challenge",
-    "version": "1.0.0",
-    "description": "A web app that uses the REST Countries API to display country-specific data requested by users. ",
-    "main": "app.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node app.js",
-        "devStart": "nodemon app.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/brianhyun/frontend-mentor-rest-countries-api-challenge.git"
-    },
-    "keywords": [
-        "api",
-        "rest",
-        "countries"
-    ],
-    "author": "Brian Hyun",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/brianhyun/frontend-mentor-rest-countries-api-challenge/issues"
-    },
-    "homepage": "https://github.com/brianhyun/frontend-mentor-rest-countries-api-challenge#readme",
-    "dependencies": {
-        "axios": "^0.21.2",
-        "body-parser": "^1.19.0",
-        "ejs": "^3.1.3",
-        "express": "^4.17.1",
-        "qs": "^6.9.7"
-    }
+  "name": "frontend-mentor-rest-countries-api-challenge",
+  "version": "1.0.0",
+  "description": "A web app that uses the REST Countries API to display country-specific data requested by users. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "devStart": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianhyun/frontend-mentor-rest-countries-api-challenge.git"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "countries"
+  ],
+  "author": "Brian Hyun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianhyun/frontend-mentor-rest-countries-api-challenge/issues"
+  },
+  "homepage": "https://github.com/brianhyun/frontend-mentor-rest-countries-api-challenge#readme",
+  "dependencies": {
+    "axios": "^0.21.2",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.22",
+    "qs": "^6.9.7"
+  }
 }
