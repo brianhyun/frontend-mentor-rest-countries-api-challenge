@@ -1,7 +1,7 @@
 {
-  "name": "frontend-mentor-rest-countries-api-challenge",
   "version": "1.0.0",
-  "description": "A web app that uses the REST Countries API to display country-specific data requested by users. ",
+  "name": "frontend-mentor-rest-countries-api-challenge",
+  "description": "A web app that uses the REST Countries API to display country-specific data requested by users.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,8 +17,8 @@
     "rest",
     "countries"
   ],
-  "author": "Brian Hyun",
   "license": "ISC",
+  "author": "Brian Hyun",
   "bugs": {
     "url": "https://github.com/brianhyun/frontend-mentor-rest-countries-api-challenge/issues"
   },

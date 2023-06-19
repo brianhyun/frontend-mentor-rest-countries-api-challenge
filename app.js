@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -8,7 +9,8 @@ const errorRouter = require("./routes/error");
 const app = express();
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Route Handling
@@ -19,5 +21,5 @@ app.use(countryRouter);
 app.use(errorRouter);
 
 app.listen(process.env.PORT || 4000, () => {
-  console.log("REST Countries API App listening at PORT", 4000);
+  console.log("App listening at PORT", 4000);
 });
