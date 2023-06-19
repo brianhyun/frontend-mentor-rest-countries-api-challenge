@@ -20,6 +20,6 @@ app.use(countryRouter);
 // Error Routing
 app.use(errorRouter);
 
-app.listen(process.env.PORT || 4000, () => {
-  console.log("App listening at PORT", 4000);
-});
+app.listen(process.env.PORT || 4000, () =>
+  console.log("App listening at PORT", 4000)
+);
