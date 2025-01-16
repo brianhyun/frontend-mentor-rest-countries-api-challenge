@@ -4,7 +4,9 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  // Ping API for Data on All Countries
+  console.log("Fetching data from API...");
+  console.log("Request URL: https://restcountries.com/v3.1/all");
+
   axios
     .get("https://restcountries.com/v3.1/all")
     .then(function (response) {
@@ -15,7 +17,10 @@ router.get("/", (req, res, next) => {
       });
     })
     .catch(function (error) {
-      console.error(error);
+      console.error("Error fetching data:", error.message);
+      res
+        .status(500)
+        .send("Error fetching data from the API. Please try again later.");
     });
 });
 
