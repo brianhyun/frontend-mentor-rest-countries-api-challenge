@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 
 const router = express.Router();
 
@@ -13,4 +13,4 @@ router.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-module.exports = router;
+export default router;

@@ -1,27 +1,24 @@
-const axios = require("axios");
-const express = require("express");
+import express from "express";
+import { fetchDataWithRetries } from "../utils/requests.js";
 
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
+router.get("/", async (req, res, next) => {
   console.log("Fetching data from API...");
-  console.log("Request URL: https://restcountries.com/v3.1/all");
+  const url = "https://restcountries.com/v3.1/all";
 
-  axios
-    .get("https://restcountries.com/v3.1/all")
-    .then(function (response) {
-      const data = response.data;
+  try {
+    const data = await fetchDataWithRetries(url);
 
-      res.render("index", {
-        countriesArr: data,
-      });
-    })
-    .catch(function (error) {
-      console.error("Error fetching data:", error.message);
-      res
-        .status(500)
-        .send("Error fetching data from the API. Please try again later.");
+    res.render("index", {
+      countriesArr: data,
     });
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    res
+      .status(500)
+      .send("Error fetching data from the API. Please try again later.");
+  }
 });
 
-module.exports = router;
+export default router;

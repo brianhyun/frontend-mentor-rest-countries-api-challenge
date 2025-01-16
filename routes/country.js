@@ -1,5 +1,5 @@
-const axios = require("axios");
-const express = require("express");
+import axios from "axios";
+import express from "express";
 
 const router = express.Router();
 
@@ -65,4 +65,4 @@ router.get("/country/:code", async (req, res, _) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,14 +1,19 @@
-const path = require("path");
-const cors = require("cors");
-const morgan = require("morgan");
-const helmet = require("helmet");
-const express = require("express");
-const bodyParser = require("body-parser");
-const indexRouter = require("./routes/index");
-const countryRouter = require("./routes/country");
-const errorRouter = require("./routes/error");
+import path from "path";
+import url from "url";
+import cors from "cors";
+import morgan from "morgan";
+import helmet from "helmet";
+import express from "express";
+import bodyParser from "body-parser";
+
+import indexRouter from "./routes/index.js";
+import countryRouter from "./routes/country.js";
+import errorRouter from "./routes/error.js";
 
 const app = express();
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Add middleware
 app.use(helmet());
