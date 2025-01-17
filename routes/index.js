@@ -1,24 +1,27 @@
 import express from "express";
-import { fetchDataWithRetries } from "../utils/requests.js";
+import fs from "fs";
+import url from "url";
+import path from "path";
 
 const router = express.Router();
 
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 router.get("/", async (req, res, next) => {
-  console.log("Fetching data from API...");
-  const url = "https://restcountries.com/v3.1/all";
+  fs.readFile(
+    path.join(__dirname, "../data/response.json"),
+    "utf8",
+    (err, data) => {
+      if (err) {
+        console.error("Error reading JSON file:", err);
+        return res.status(500).send("Error fetching data from the local file.");
+      }
 
-  try {
-    const data = await fetchDataWithRetries(url);
-
-    res.render("index", {
-      countriesArr: data,
-    });
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    res
-      .status(500)
-      .send("Error fetching data from the API. Please try again later.");
-  }
+      const countriesArr = JSON.parse(data);
+      res.render("index", { countriesArr });
+    }
+  );
 });
 
 export default router;

@@ -16,7 +16,20 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Add middleware
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      imgSrc: [
+        "'self'",
+        "data:",
+        "https://flagcdn.com",
+        "https://upload.wikimedia.org",
+      ],
+      scriptSrc: ["'self'", "https://ajax.googleapis.com"],
+    },
+  })
+);
 app.use(morgan("dev"));
 app.use(bodyParser.json()); // Parses JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Parses URL-encoded data
